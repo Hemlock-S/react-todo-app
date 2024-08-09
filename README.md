@@ -1,2 +1,1 @@
-########react-icons##########
-npm install react-icons 
+react-icons
