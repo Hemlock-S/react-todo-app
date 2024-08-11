@@ -15,7 +15,7 @@ const App = () => {
   // fetching data
   const fetchingData = async () => {
     try{
-      const res = await fetch('https://aluminum-delicate-snowshoe.glitch.me/tasks')
+      const res = await fetch('https://necessary-jumpy-celery.glitch.me/tasks')
       if(!res.ok) throw new Error("Something went wrong!")
       const data = await res.json();
       setTasks(data);
@@ -29,7 +29,7 @@ const App = () => {
   return (
     <div className='wrapper bg-gradient-to-t from-gray-900 to-teal-900 min-h-screen text-xl text-gray-100 flex flex-col py-10'>
       <Header />
-      <AddTask />
+      <AddTask tasks={tasks} setTasks={setTasks}/>
       <TaskList tasks={ tasks }/>
       <Footer />
     </div>

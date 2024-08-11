@@ -1,11 +1,11 @@
 import {  useRef, useState } from 'react';
 
-const AddTask = () => {
+const AddTask = ({ tasks, setTasks }) => {
   const [task, setTask] = useState('');
 
   const inputRef = useRef(null);
 
-  // addTaskHAndle Event 
+  // addTaskHAndler Event 
   const addTaskHandler = (e) => {
     e.preventDefault();
 
@@ -19,14 +19,18 @@ const AddTask = () => {
   // task posting
   // use "text" 
   const taskposting = async (text) => {
-    const res = await fetch('https://aluminum-delicate-snowshoe.glitch.me/tasks', {
+    const res = await fetch('https://necessary-jumpy-celery.glitch.me/tasks', {
       method: 'POST',
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify({text}),
-    }
-  )
+    });
+
+    const data = await res.json(); //jei data post kora hoiche oi data nilam
+    
+    // real-time data updation
+    setTasks([...tasks, data]); 
 }
 
 
